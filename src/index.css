@@ -91,3 +91,39 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.save-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.edit-button {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.edit-button:hover {
+  background-color: #e0a800;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.complete-button {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.complete-button:hover {
+  background-color: #218838;
+}
