@@ -5,7 +5,7 @@ import Button from "./Button";
 const NewTodo: React.FC = () => {
   return (
     <form className="todo-form">
-      <Input className="todo-input" />
+      <Input className="todo-input" placeHolder="Add a todo" />
       <Button
         type="submit"
         className="todo-button"
