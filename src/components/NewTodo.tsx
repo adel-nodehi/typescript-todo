@@ -30,6 +30,7 @@ const NewTodo: React.FC = () => {
         onChange={(e) => setTitle(e.target.value)}
         className="todo-input"
         placeHolder="Add a todo"
+        autoFocus
       />
       <Button type="submit" className="todo-button">
         Add
