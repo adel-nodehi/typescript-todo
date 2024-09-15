@@ -33,8 +33,12 @@ export const todoSlice = createSlice({
     editTodo: () => {
       console.log("edit");
     },
-    toggleCompleteTodo: () => {
-      console.log("toggleComplete");
+    toggleCompleteTodo: (state, action: PayloadAction<string>) => {
+      const selectedTodo = state.find((todo) => todo.id === action.payload);
+
+      if (!selectedTodo) return;
+
+      selectedTodo.isCompleted = !selectedTodo.isCompleted;
     },
   },
 });

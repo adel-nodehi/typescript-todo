@@ -3,7 +3,7 @@ import { Todo } from "../types/todo.model";
 import Button from "./Button";
 import Input from "./Input";
 import { useAppDispatch } from "../hooks/storeHook";
-import { deleteTodo } from "./todoSlice";
+import { deleteTodo, toggleCompleteTodo } from "./todoSlice";
 
 interface TodoItemProps {
   todo: Todo;
@@ -55,7 +55,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
           </Button>
 
           <Button
-            onClick={() => console.log("complete")}
+            onClick={() => dispatch(toggleCompleteTodo(todo.id))}
             className="complete-button"
           >
             Complete
