@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 interface ButtonProps {
   type?: "button" | "submit" | "reset";
   className?: string;
-  onClick(): void;
+  onClick?(): void;
   children: ReactNode;
 }
 
