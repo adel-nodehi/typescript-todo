@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { Todo } from "../types/todo.model";
 import Button from "./Button";
 import Input from "./Input";

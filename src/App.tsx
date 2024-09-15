@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Title from "./components/Title";
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/TodoList";
