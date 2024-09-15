@@ -30,8 +30,28 @@ export const todoSlice = createSlice({
     deleteTodo: (state, action: PayloadAction<string>) => {
       return state.filter((todo) => todo.id !== action.payload);
     },
-    editTodo: () => {
-      console.log("edit");
+    editTodo: {
+      prepare: (payload: { id: string; title: string }) => {
+        return {
+          payload: {
+            id: payload.id,
+            title: payload.title,
+          },
+        };
+      },
+
+      reducer: (
+        state,
+        action: PayloadAction<{ id: string; title: string }>
+      ) => {
+        const selectedTodo = state.find(
+          (todo) => todo.id === action.payload.id
+        );
+
+        if (!selectedTodo || selectedTodo.text === action.payload.title) return;
+
+        selectedTodo.text = action.payload.title;
+      },
     },
     toggleCompleteTodo: (state, action: PayloadAction<string>) => {
       const selectedTodo = state.find((todo) => todo.id === action.payload);

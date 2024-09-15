@@ -3,7 +3,7 @@ import { Todo } from "../types/todo.model";
 import Button from "./Button";
 import Input from "./Input";
 import { useAppDispatch } from "../hooks/storeHook";
-import { deleteTodo, toggleCompleteTodo } from "./todoSlice";
+import { deleteTodo, editTodo, toggleCompleteTodo } from "./todoSlice";
 
 interface TodoItemProps {
   todo: Todo;
@@ -14,6 +14,17 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const [editedText, setEditedText] = useState<string>(todo.text);
 
   const dispatch = useAppDispatch();
+
+  function handleSave() {
+    if (!editedText) {
+      alert("Please fill the editing input.");
+      return;
+    }
+
+    dispatch(editTodo({ id: todo.id, title: editedText }));
+
+    setIsEditing(false);
+  }
 
   function handleDelete() {
     const isConfirmed = window.confirm(
@@ -32,13 +43,14 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
           className="edit-input"
           value={editedText}
           onChange={(e) => setEditedText(e.target.value)}
+          autoFocus
         />
       ) : (
         <span>{todo.text}</span>
       )}
 
       {isEditing ? (
-        <Button onClick={() => console.log("save")} className="save-button">
+        <Button onClick={handleSave} className="save-button">
           Save
         </Button>
       ) : (
