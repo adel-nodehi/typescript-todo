@@ -5,6 +5,7 @@ interface InputProps {
   value?: string;
   onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
   placeHolder?: string;
+  autoFocus?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -12,6 +13,7 @@ const Input: React.FC<InputProps> = ({
   value = "",
   onChange = () => {},
   placeHolder = "",
+  autoFocus = false,
 }) => {
   return (
     <input
@@ -20,6 +22,7 @@ const Input: React.FC<InputProps> = ({
       value={value}
       onChange={onChange}
       placeholder={placeHolder}
+      autoFocus={autoFocus}
     />
   );
 };
