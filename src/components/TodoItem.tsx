@@ -15,6 +15,16 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
 
   const dispatch = useAppDispatch();
 
+  function handleDelete() {
+    const isConfirmed = window.confirm(
+      `Are you shore want to delete "${todo.text}"?`
+    );
+
+    if (!isConfirmed) return;
+
+    dispatch(deleteTodo(todo.id));
+  }
+
   return (
     <li className={`todo-item ${todo.isCompleted ? "completed" : ""}`}>
       {isEditing ? (
@@ -40,10 +50,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
             Edit
           </Button>
 
-          <Button
-            onClick={() => dispatch(deleteTodo())}
-            className="delete-button"
-          >
+          <Button onClick={handleDelete} className="delete-button">
             Delete
           </Button>
 
