@@ -1,19 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import TodoItem from "./TodoItem";
+import { useAppSelector } from "../hooks/storeHook";
 
 const TodoList: React.FC = () => {
-  const todos = [
-    {
-      id: "sdsd",
-      text: "read something",
-      isCompleted: true,
-    },
-    {
-      id: "ssdsd",
-      text: "read something",
-      isCompleted: false,
-    },
-  ];
+  const todos = useAppSelector((state) => state.todo);
 
   return (
     <ul className="todo-list">
