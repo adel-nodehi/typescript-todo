@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Todo } from "../types/todo.model";
 import Button from "./Button";
 import Input from "./Input";
+import { useAppDispatch } from "../hooks/storeHook";
+import { deleteTodo } from "./todoSlice";
 
 interface TodoItemProps {
   todo: Todo;
@@ -10,6 +12,8 @@ interface TodoItemProps {
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editedText, setEditedText] = useState<string>(todo.text);
+
+  const dispatch = useAppDispatch();
 
   return (
     <li className={`todo-item ${todo.isCompleted ? "completed" : ""}`}>
@@ -37,7 +41,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
           </Button>
 
           <Button
-            onClick={() => console.log("delete")}
+            onClick={() => dispatch(deleteTodo())}
             className="delete-button"
           >
             Delete
