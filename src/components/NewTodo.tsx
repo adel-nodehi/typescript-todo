@@ -1,9 +1,10 @@
 import React, { FormEvent, useState } from "react";
+
 import Input from "./Input";
 import Button from "./Button";
+
 import { useAppDispatch } from "../hooks/storeHook";
 import { addTodo } from "./todoSlice";
-import { Todo } from "../types/todo.model";
 
 const NewTodo: React.FC = () => {
   const dispatch = useAppDispatch();

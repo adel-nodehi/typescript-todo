@@ -1,8 +1,9 @@
+import { Provider } from "react-redux";
+import { store } from "./store";
+
 import Title from "./components/Title";
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/TodoList";
-import { Provider } from "react-redux";
-import { store } from "./store";
 
 const App: React.FC = () => {
   return (

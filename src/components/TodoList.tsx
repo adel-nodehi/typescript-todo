@@ -1,5 +1,7 @@
 import React from "react";
+
 import TodoItem from "./TodoItem";
+
 import { useAppSelector } from "../hooks/storeHook";
 
 const TodoList: React.FC = () => {
