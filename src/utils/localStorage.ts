@@ -6,6 +6,5 @@ export const loadTodos = () => {
 };
 
 export const setTodos = (todos: Todo[]) => {
-  console.log(todos);
   localStorage.setItem("todo-list", JSON.stringify(todos));
 };
