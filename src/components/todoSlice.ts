@@ -3,18 +3,7 @@ import { Todo } from "../types/todo.model";
 
 type initialStateType = Todo[];
 
-const initialState: initialStateType = [
-  {
-    id: "sdsd",
-    text: "read something",
-    isCompleted: true,
-  },
-  {
-    id: "ssdsd",
-    text: "read something",
-    isCompleted: false,
-  },
-];
+const initialState: initialStateType = [];
 
 export const todoSlice = createSlice({
   name: "todo",
